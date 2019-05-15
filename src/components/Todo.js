@@ -15,9 +15,14 @@ const TodoCard = styled.div`
     padding-left: 10px;
 `
 
-const Todo = ({ text, id }) => (
+const Todo = ({ text, id, completed, onClick }) => (
     <TodoCardWrapper>
-        <TodoCard style={ id !== 0 ? { borderTopWidth: 0 } : undefined }>
+        <TodoCard 
+        onClick={onClick} 
+        style={{
+            borderTopWidth: id !== 0 ? 0  : undefined, 
+            textDecoration: completed ? 'line-through' : 'none' 
+        }}>
             {text}
         </TodoCard>
     </TodoCardWrapper>
@@ -25,7 +30,8 @@ const Todo = ({ text, id }) => (
 
 Todo.propTypes = {
     text: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.number.isRequired,
+    completed: PropTypes.bool.isRequired
 }
 
 export default Todo
