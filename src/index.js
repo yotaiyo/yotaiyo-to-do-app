@@ -7,12 +7,9 @@ import todo from './reducers'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import { addTodo, toggleTodo } from './actions'
+import { addTodo, toggleTodo, setVisibilityFilter } from './actions'
 
 let store = createStore(todo)
-
-store.dispatch(addTodo('Hello React!'))
-store.dispatch(toggleTodo(0))
 
 ReactDOM.render(
   <Provider store={store}>
